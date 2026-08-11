@@ -2,7 +2,25 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="text/javascript">
+      // Contrepartie de public/404.html : restaure le vrai chemin (via
+      // history.replaceState) avant que react-router-dom ne lise l'URL.
+      // Sans effet en dehors de GitHub Pages (la query string ne matche
+      // jamais le motif ailleurs).
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/the-green-man/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Green Man — Bar-restaurant, 21 rue Pasteur, Besançon</title>
     <meta
@@ -11,14 +29,16 @@
     />
     <link
       rel="preload"
-      href="/src/assets/fonts/fraunces-variable.woff2"
+      href="/the-green-man/assets/fraunces-variable-ukD16Tqj.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
     />
+    <script type="module" crossorigin src="/the-green-man/assets/index-CXb6YxPg.js"></script>
+    <link rel="modulepreload" crossorigin href="/the-green-man/assets/useReducedMotion-eRG-AXdl.js">
+    <link rel="stylesheet" crossorigin href="/the-green-man/assets/index-CtUtM_pR.css">
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
