@@ -1,0 +1,102 @@
+.site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: var(--z-header);
+  --header-fg: var(--color-parchemin);
+  --header-bg: rgb(33 28 24 / 0);
+  color: var(--header-fg);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-block: var(--space-6);
+  background: var(--header-bg);
+  transition:
+    background-color var(--duration-quick) ease,
+    padding-block var(--duration-quick) ease,
+    box-shadow var(--duration-quick) ease;
+}
+
+.site-header--compact {
+  --header-bg: rgb(33 28 24 / 0.85);
+}
+
+.site-header--compact .site-header__bar {
+  padding-block: var(--space-3);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
+}
+
+.site-header--light {
+  --header-fg: var(--color-chene);
+}
+
+.site-header--light.site-header--compact {
+  --header-bg: rgb(237 228 211 / 0.92);
+}
+
+.site-header__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target-min);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  color: inherit;
+  white-space: nowrap;
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.site-header__tel {
+  white-space: nowrap;
+}
+
+.site-header__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-target-min);
+  height: var(--tap-target-min);
+  color: inherit;
+}
+
+.call-bar {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .site-header__tel {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: inline-flex;
+  }
+
+  .call-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-call-bar);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: var(--tap-target-min);
+    padding: var(--space-3);
+    background: var(--color-accent);
+    color: var(--color-chene);
+    font-weight: 600;
+    letter-spacing: var(--tracking-wide);
+  }
+}

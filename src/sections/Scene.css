@@ -1,0 +1,92 @@
+.scene {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--color-parchemin);
+}
+
+.scene__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.scene__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(270deg, rgb(19 15 13 / 0.92) 0%, rgb(19 15 13 / 0.75) 45%, rgb(19 15 13 / 0.4) 100%);
+}
+
+.scene__content {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--space-24);
+  margin-left: auto;
+  text-align: right;
+}
+
+.scene__content h2 {
+  margin-block: var(--space-3) var(--space-4);
+}
+
+.scene__text {
+  max-width: 46ch;
+  margin-left: auto;
+  font-size: var(--text-lg);
+  color: var(--color-parchemin-dim);
+}
+
+.scene__claim {
+  max-width: 40ch;
+  margin-left: auto;
+  margin-top: var(--space-4);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+}
+
+.scene__events {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-top: var(--space-8);
+  max-width: 40ch;
+  margin-left: auto;
+}
+
+.scene__event {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-2);
+  border-bottom: 1px solid rgb(237 228 211 / 0.15);
+}
+
+.scene__event-date {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.scene__renvoi {
+  margin-top: var(--space-8);
+}
+
+.scene__renvoi p {
+  color: var(--color-parchemin-dim);
+  margin-bottom: var(--space-4);
+}
+
+@media (max-width: 1199px) {
+  .scene__content {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .scene__text,
+  .scene__claim,
+  .scene__events {
+    margin-left: 0;
+  }
+}

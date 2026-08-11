@@ -1,0 +1,80 @@
+.ardoise {
+  background: var(--color-bg);
+}
+
+.ardoise__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+.ardoise__intro h2 {
+  margin-block: var(--space-3) var(--space-4);
+}
+
+.ardoise__intro p {
+  max-width: 48ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.ardoise__facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+
+.ardoise__facts li::before {
+  content: '— ';
+  opacity: 0.6;
+}
+
+.ardoise__moment + .ardoise__moment {
+  margin-top: var(--space-6);
+}
+
+.ardoise__moment-label {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: var(--space-2);
+}
+
+.ardoise__item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  font-size: var(--text-xl);
+  padding-block: var(--space-1);
+}
+
+.ardoise__price {
+  font-family: var(--font-body);
+  font-style: normal;
+  opacity: 0.85;
+}
+
+.ardoise__renvoi {
+  margin-top: var(--space-6);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.ardoise__renvoi-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 900px) {
+  .ardoise__grid {
+    grid-template-columns: 5fr 7fr;
+    align-items: start;
+  }
+}
