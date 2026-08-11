@@ -2,6 +2,24 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <script type="text/javascript">
+      // Contrepartie de public/404.html : restaure le vrai chemin (via
+      // history.replaceState) avant que react-router-dom ne lise l'URL.
+      // Sans effet en dehors de GitHub Pages (la query string ne matche
+      // jamais le motif ailleurs).
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Green Man — Bar-restaurant, 21 rue Pasteur, Besançon</title>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>The Green Man</title>
+    <script type="text/javascript">
+      // Redirection SPA pour GitHub Pages (technique rafgraph/spa-github-pages) :
+      // GitHub Pages ne sait pas réécrire les routes côté serveur comme
+      // Netlify/Vercel (_redirects, vercel.json). On encode le chemin réel
+      // dans la query string d'un aller-retour vers index.html, qui le
+      // restaure avant que react-router-dom ne s'initialise — voir le script
+      // correspondant dans index.html.
+      var pathSegmentsToKeep = 1; // /the-green-man/
+
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(pathSegmentsToKeep)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
